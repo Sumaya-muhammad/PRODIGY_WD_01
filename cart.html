@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+        <title>FARAYA ACCESSORIES</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <link rel="stylesheet" href="style1.css">
+    </head>
+    <body>
+        <section id="header">
+            <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
+            <div>
+                <ul id="navbar">
+                    <li><a href="task1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id = "lg_bag"><a class="active" href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                    <a href="#" id="close"><i class="fas fa-times"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+        <section id="page-header" class="cart-header">
+            <h2> #Cart</h2> 
+            <p>Add your coupon & SAVE upto 70%!</p>
+        </section>
+        <section id="cart" class="section-p1">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#"><i class="fas fa-times-circle"></i></a></td>
+                        <td><img src="image/image1_1.png" alt=""></td>
+                        <td>CamerarollKeychain - 5 pictures</td>
+                        <td> AED 150</td>
+                        <td><input type="number" value="1"></td>
+                        <td>AED 150</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#"><i class="fas fa-times-circle"></i></a></td>
+                        <td><img src="image/image2_1.png" alt=""></td>
+                        <td>CamerarollKeychain - 7 pictures</td>
+                        <td> AED 250</td>
+                        <td><input type="number" value="1"></td>
+                        <td>AED 250</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#"><i class="fas fa-times-circle"></i></a></td>
+                        <td><img src="image/image3_1.png" alt=""></td>
+                        <td>CamerarollKeychain - 10 pictures</td>
+                        <td> AED 300</td>
+                        <td><input type="number" value="1"></td>
+                        <td>AED 300</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </section>
+        <section id="cart-add" class="section-p1">
+            <div id="coupon">
+                <h3>Apply Coupon</h3>
+                <div>
+                    <input type="text" placeholder="Enter Your Coupon">
+                    <button class="normal">Apply</button>
+                </div>
+            </div>
+            <div id="subtotal">
+                <h3>Cart Total</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td>AED 700</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>AED 700</strong></td>
+                    </tr>
+                </table>
+                <button id="pay" class="normal">Proceed to Checkout</button>
+            </div>
+        </section>
+        <footer id="foot" class="section-p1">
+            <div class="col">
+                <h4 class="ti"> Faraya Accessories</h4>
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Abu Dhabi, UAE</p>
+                <p><strong>Phone:</strong>+971 50 000 9999</p>
+                <p><strong>Hours:</strong>10:00 Am - 06:00 Pm, Mon - Fri</p>
+                <div class="follow">
+                    <h4 class="fol">Follow Us!</h4>
+                    <div class="icon">
+                        <img class="insta" src="image/insta.png">
+                        <a href="https://www.instagram.com/faraya.accessories/" target="_blank"><p class="ins">faraya.Accessories</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About us </a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy </a>
+                <a href="#">Terms and Conditions </a>
+                <a href="contact.html">Contact us </a>
+            </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In </a>
+                <a href="cart.html">Cart</a>
+                <a href="#">My Wishlist </a>
+                <a href="#">Track my Order </a>
+                <a href="#">Help </a>
+            </div>
+            <div class="col install">
+                <h4>Install Apps</h4>
+                <p> From App Store or Google Play</p>
+                <div class="row">
+                    <img src="image/app.png" alt="">
+                    <img src="image/google.png" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="image/payment.png" alt="">
+            </div>
+            <div class="copyright">
+                <p>© 2022 Faraya Accessories. All rights reserved.</p>
+            </div>
+        </footer>
+        <script>
+            /*Quantity Update Logic:*/
+            var quantityInputs = document.querySelectorAll('input[type="number"]');
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', updateCartTotal);
+            });
+            function updateCartTotal() {
+                var cartTotal = 0;
+                var rows = document.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    var price = parseFloat(row.children[3].innerText.replace('AED', ''));
+                    var quantity = row.children[4].children[0].value;
+                    var subtotal = price * quantity;
+                    row.children[5].innerText = 'AED ' + subtotal;
+                    cartTotal += subtotal;
+                });
+                document.querySelector('#subtotal td:last-child').innerText = 'AED ' + cartTotal;
+            }
+            /*coupon*/
+            document.querySelector('#coupon button').addEventListener('click', function() {
+                var coupon = document.querySelector('#coupon input').value;
+                if (!coupon) {
+                    alert('Please enter a valid coupon code');
+                } else {
+                    alert('Coupon applied');
+                }
+            });
+
+
+        </script>
+        <script src="script1.js"></script>
+    </body>
+    
+</html>

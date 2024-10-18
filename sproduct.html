@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+        <title>FARAYA ACCESSORIES</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+        <link rel="stylesheet" href="style1.css">
+    </head>
+    <body>
+        <section id="header">
+            <a href="#"><img src="image/logo.png" class="logo" alt=""></a>
+            <div>
+                <ul id="navbar">
+                    <li><a href="task1.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id = "lg_bag"><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                    <a href="#" id="close"><i class="fas fa-times"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <img src="image/image14.png" width="100%" id="mainimg" alt="">
+                
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="image/image14.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="image/image1_1.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="image/image1_2.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="image/image1_3.png" width="100%" class="small-img" alt="">
+                    </div>
+                </div>  
+            </div>
+            <div class="single-pro-details">
+                <h4> CameraRoll keychain - 5 pictures</h4>
+                <h2>Product Details</h2>
+                <span>Capture your top 5 favorite moments with this compact, stylish filmstrip keychain. Perfect for showcasing special memories in a sleek, personalized way!</span>
+                <h2> AED 150 </h2>
+                <h3>Upload Your Pictures</h3>
+                <form action="upload.php" method="POST" enctype="multipart/form-data" onsubmit="return validateUpload()">
+                    <label for="file-upload">Select 5 pictures:</label><br>
+                    <input type="file" id="file-upload" name="pictures[]" accept="image/*" multiple required><br>
+                    <button type="submit" class="normal1">Upload Pictures</button>
+                    
+                    <p id="file-error" style="color: red;"></p> <!-- Error message area -->
+                    
+                </form>
+                <input type="number" id="quantity" value="1" min="1">
+                <button class="normal" id="addToCart">Add To Cart</button>
+                <div class="uploaded-images" id="uploadedImages"></div>
+                
+                
+
+            </div>
+        
+        </section>
+        <footer id="foot" class="section-p1">
+            <div class="col">
+                <h4 class="ti"> Faraya Accessories</h4>
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Abu Dhabi, UAE</p>
+                <p><strong>Phone:</strong>+971 50 000 9999</p>
+                <p><strong>Hours:</strong>10:00 Am - 06:00 Pm, Mon - Fri</p>
+                <div class="follow">
+                    <h4 class="fol">Follow Us!</h4>
+                    <div class="icon">
+                        <img class="insta" src="image/insta.png">
+                        <a href="https://www.instagram.com/faraya.accessories/" target="_blank"><p class="ins">faraya.Accessories</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About us </a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy </a>
+                <a href="#">Terms and Conditions </a>
+                <a href="contact.html">Contact us </a>
+            </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In </a>
+                <a href="cart.html">Cart</a>
+                <a href="#">My Wishlist </a>
+                <a href="#">Track my Order </a>
+                <a href="#">Help </a>
+            </div>
+            <div class="col install">
+                <h4>Install Apps</h4>
+                <p> From App Store or Google Play</p>
+                <div class="row">
+                    <img src="image/app.png" alt="">
+                    <img src="image/google.png" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="image/payment.png" alt="">
+            </div>
+            <div class="copyright">
+                <p>© 2022 Faraya Accessories. All rights reserved.</p>
+            </div>
+        </footer>
+        <script>
+        function validateUpload() {
+            var fileInput = document.getElementById('file-upload');
+            var errorMsg = document.getElementById('file-error');
+            if (fileInput.files.length !== 5) {
+                errorMsg.textContent = 'Please upload exactly 5 pictures.';
+                return false; // Prevent form submission
+            }
+            errorMsg.textContent = ''; // Clear error message
+            return true; // Allow form submission
+        }
+        var Mainimg=document.getElementById("mainimg");
+        var smallimg=document.getElementsByClassName("small-img");
+        smallimg[0].onclick=function(){
+            Mainimg.src=smallimg[0].src;
+        }
+        smallimg[1].onclick=function(){
+            Mainimg.src=smallimg[1].src;
+        }
+        smallimg[2].onclick=function(){
+            Mainimg.src=smallimg[2].src;
+        }
+        smallimg[3].onclick=function(){
+            Mainimg.src=smallimg[3].src;
+        }
+        /*document.getElementById('file-upload').addEventListener('change', function() {
+            var fileList = this.files;
+            var output = document.getElementById('uploadedImages');
+            output.innerHTML = '';
+            for (var i = 0; i < fileList.length; i++) {
+                var fileItem = document.createElement('p');
+                fileItem.textContent = fileList[i].name;
+                output.appendChild(fileItem);
+            }
+        })*/
+
+        </script>
+        <script src="script1.js"></script>
+    
+    </body>
+    
+</html>
